@@ -8,12 +8,6 @@
 <body>
     <h1>Lista de Módulos</h1>
 
-    <a href="{{ route('modulos.create') }}">Crear Nuevo Módulo</a>
-
-    @if (session('success'))
-        <p style="color: green;">{{ session('success') }}</p>
-    @endif
-
     <table border="1">
         <thead>
             <tr>
@@ -22,7 +16,6 @@
                 <th>Módulo</th>
                 <th>Descripción</th>
                 <th>Número de Horas</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
