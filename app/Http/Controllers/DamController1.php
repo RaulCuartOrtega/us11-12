@@ -12,8 +12,10 @@ class DamController1 extends Controller
      */
     public function index()
     {
-    $modulos = Dam1::all();
-    return view('modulos.index', ['modulos' => $modulos]);
+    $modulos_all = Dam1::all();
+    $modulos_all = Dam1::paginate(1);
+    
+    return view('modulos.index', ['modulos_all' => $modulos_all]);
     }
 
     /**
@@ -53,7 +55,8 @@ class DamController1 extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dam = Dam1::find($id);
+        return view('modulos.edit',['dam' => $dam]);
     }
 
     /**
@@ -61,7 +64,13 @@ class DamController1 extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $modulos = Dam1::find($id);
+        $modulos->curso = $request->curso;
+        $modulos->modulo = $request->modulo;
+        $modulos->descripcion = $request->descripcion;
+        $modulos->nHoras = $request->nHoras;
+        $modulos->save();
+        return redirect()->route('modulos.index');
     }
 
     /**
@@ -69,6 +78,9 @@ class DamController1 extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $dam = Dam1::find($id);
+        $dam = delete();
+
+        return redirect()->route('modulos.index');
     }
 }

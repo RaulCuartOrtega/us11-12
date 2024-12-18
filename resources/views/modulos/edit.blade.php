@@ -1,7 +1,11 @@
-<form action="{{ route('modulos.store') }}" method="post">
-    @csrf
+<form action="{{ route('modulos.update', $modulos)}}" method="POST">
 
-    <label for="name">Curso "primero" o "segundo":</label>
+@csrf
+
+@method('PUT')
+
+
+<label for="name">Curso "primero" o "segundo":</label>
     <input type="text" name="curso"/>
     <label for="modulo">Nombre del modulo:</label>
     <input type="text" name="modulo"/>
@@ -9,7 +13,6 @@
     <input type="text" name="descripcion"/>
     <label for="nHoras">Numero de horas:</label>
     <input type="number" name="nHoras"/>
+    <button type="submit">Submit</button>
 
-
-    <button type="submit">Enviar</button>
 </form>

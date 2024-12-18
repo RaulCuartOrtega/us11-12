@@ -8,18 +8,8 @@
 <body>
     <h1>Lista de Módulos</h1>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Curso</th>
-                <th>Módulo</th>
-                <th>Descripción</th>
-                <th>Número de Horas</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($modulos as $modulo)
+    <table>
+            @foreach ($modulos_all as $modulo)
                 <tr>
                     <td>{{ $modulo->id }}</td>
                     <td>{{ $modulo->curso }}</td>
@@ -28,7 +18,19 @@
                     <td>{{ $modulo->nHoras }}</td>
                 </tr>
             @endforeach
-        </tbody>
     </table>
+  
+    <form action=" {{ route ('Dam1.destroy',$dam) }} method ="post">
+    @method('DELETE')
+    @csrf
+    <button type="submit">Delete</button>
+
+    </form>
+
+    
+    <a href="{{ route('modulos.edit',$dam)}}" method="POST">Update</a>
+
+    {{ $modulos_all->links() }}
+    @endforeach
 </body>
 </html>
