@@ -79,7 +79,7 @@ class DamController1 extends Controller
     public function destroy(string $id)
     {
         $dam = Dam1::find($id);
-        $dam = delete();
+        $dam->delete();
 
         return redirect()->route('modulos.index');
     }
