@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modulos', function (Blueprint $table) {
+        Schema::create('dams', function (Blueprint $table) {
             $table->id(column: 'id')->autoIncrement()->primary();
             $table->enum('curso', ['primero','segundo'])->default('primero');
             $table->string('modulo',40);
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modulos');
+        Schema::dropIfExists('dams');
     }
 };

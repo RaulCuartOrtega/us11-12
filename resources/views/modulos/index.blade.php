@@ -1,20 +1,20 @@
 <table>
 
-    @foreach ($modulos_all as $modulos )
+    @foreach ($dam_all as $dams )
 
     <tr>
 
-        <td> {{ $modulos->id }} </td>
-        <td> {{ $modulos->curso }} </td>
-        <td> {{ $modulos->modulo }} </td>
-        <td> {{ $modulos->descripcion }} </td>
-        <td> {{ $modulos->nHoras }} </td>
+        <td> {{ $dams->id }} </td>
+        <td> {{ $dams->curso }} </td>
+        <td> {{ $dams->modulo }} </td>
+        <td> {{ $dams->descripcion }} </td>
+        <td> {{ $dams->nHoras }} </td>
 
     </tr>
 
 </table>
 
-<form action="{{ route('modulos.destroy', $modulos)}}" method="POST">
+<form action="{{ route('dams.destroy', $dams)}}" method="POST">
 
     @method('DELETE')
     @csrf
@@ -23,7 +23,7 @@
 
 </form>
 
-<a href="{{ route('modulos.edit', parameters: $modulos)}}" method="POST">Update</a>
+<a href="{{ route('dams.edit', parameters: $dam)}}" method="POST">Update</a>
 
-{{ $modulos_all->links()}}
+{{ $dam_all->links()}}
 @endforeach

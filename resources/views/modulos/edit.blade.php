@@ -1,4 +1,4 @@
-<form action="{{ route('modulos.update', $dam)}}" method="POST">
+<form action="{{ route('dams.update', $dam)}}" method="POST">
 
 @csrf
 

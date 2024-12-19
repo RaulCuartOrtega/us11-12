@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dam1 extends Model
+class Dam extends Model
 {
-    protected $table = 'modulos';
+    protected $table = 'dams';
     protected $fillable = [
         'curso',
         'modulo',

@@ -1,4 +1,4 @@
-<form action="{{ route('modulos.store') }}" method="post">
+<form action="{{ route('dams.store') }}" method="post">
     @csrf
 
     <label for="name">Curso "primero" o "segundo":</label>

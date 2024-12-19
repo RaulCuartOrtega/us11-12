@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dam1;
+use App\Models\Dam;
 use Illuminate\Http\Request;
 
-class DamController1 extends Controller
+class DamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-    $modulos_all = Dam1::all();
-    $modulos_all = Dam1::paginate(1);
+    $dam_all = Dam::all();
+    $dam_all = Dam::paginate(1);
     
-    return view('modulos.index', ['modulos_all' => $modulos_all]);
+    return view('dams.index', ['dam_all' => $dam_all]);
     }
 
     /**
@@ -23,7 +23,7 @@ class DamController1 extends Controller
      */
     public function create()
     {
-        return view('modulos.create');
+        return view('dams.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class DamController1 extends Controller
      */
     public function store(Request $request)
     {
-        $dam = new Dam1;
+        $dam = new Dam;
         $dam->curso = $request->curso;
         $dam->modulo = $request->modulo;
         $dam->descripcion = $request->descripcion;
@@ -39,7 +39,7 @@ class DamController1 extends Controller
         
 
         $dam->save();
-        return redirect()->route('modulos.create');
+        return redirect()->route('dams.create');
     }
 
     /**
@@ -55,8 +55,8 @@ class DamController1 extends Controller
      */
     public function edit(string $id)
     {
-        $dam = Dam1::find($id);
-        return view('modulos.edit',['dam' => $dam]);
+        $dam = Dam::find($id);
+        return view('dams.edit',['dam' => $dam]);
     }
 
     /**
@@ -64,13 +64,13 @@ class DamController1 extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $modulos = Dam1::find($id);
-        $modulos->curso = $request->curso;
-        $modulos->modulo = $request->modulo;
-        $modulos->descripcion = $request->descripcion;
-        $modulos->nHoras = $request->nHoras;
-        $modulos->save();
-        return redirect()->route('modulos.index');
+        $dams = Dam::find($id);
+        $dams->curso = $request->curso;
+        $dams->modulo = $request->modulo;
+        $dams->descripcion = $request->descripcion;
+        $dams->nHoras = $request->nHoras;
+        $dams->save();
+        return redirect()->route('dams.index');
     }
 
     /**
@@ -78,9 +78,9 @@ class DamController1 extends Controller
      */
     public function destroy(string $id)
     {
-        $dam = Dam1::find($id);
+        $dam = Dam::find($id);
         $dam->delete();
 
-        return redirect()->route('modulos.index');
+        return redirect()->route('dams.index');
     }
 }
